@@ -19,3 +19,19 @@ $("#currentDay").text(now.format("ddd, MMMM Do"));
 
 
 
+//Compares current time to id number for each text field
+$(".time-div").each(function () {
+  var timeDiv = $(this).attr("id").split("-")[1];
+  
+  if (thisHour == timeDiv) {
+    $(this).addClass("present");
+  }
+  else if (thisHour < timeDiv) {
+    $(this).removeClass("present");
+    $(this).addClass("future");
+  }
+  else if (thisHour > timeDiv) {
+    $(this).removeClass("future");
+    $(this).addClass("past");
+  }
+});
