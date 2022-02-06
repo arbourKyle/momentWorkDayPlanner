@@ -35,3 +35,19 @@ $(".time-div").each(function () {
     $(this).addClass("past");
   }
 });
+
+
+//Setting local storage on click
+$(".saveBtn").click(function (event) {
+  event.preventDefault();
+  var value = $(this).siblings(".time-block").val();
+  var time = $(this).parent().attr("id").split("-")[1];
+  localStorage.setItem(time, value);
+});
+
+//Reset button
+$("#reset").click(function (event) {
+    event.preventDefault;
+    $("textarea").val("");
+    localStorage.clear();
+  });
